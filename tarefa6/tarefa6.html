@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html>   
+
+   <head>
+
+      <meta charset="UTF-8">      
+
+   </head>
+
+
+
+   <body>
+
+      <div><button id="botaoCarregar">Carregando bancos...</button></div>
+
+      <div id="bancosDiv"></div>            
+
+   </body>   
+
+   
+
+   <script>
+
+
+
+      let bancos = []
+
+      
+
+      //cs é um array de bancos
+
+      const carregarDiv = cs => {
+
+         const div = document.getElementById("bancosDiv")
+
+         const itensHtml = cs.map( ({name, local}) => `<div>${name} -- ${local}</div>` ) 
+
+         div.innerHTML = `${itensHtml.join("\n")}`
+
+      }
+
+        
+
+
+       async function carregarBancos(){
+
+         let res = await fetch("https://random-data-api.com/api/v2/banks")
+
+         bancos = await res.json()
+
+         carregarDiv(bancos)
+
+      }
+
+
+
+      let botao = document.getElementById("botaoCarregar")
+
+      botao.addEventListener("click", () => carregarBancos() )                 
+
+      
+
+   </script>
+
+</html>
