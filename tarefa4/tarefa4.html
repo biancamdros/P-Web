@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html>   
+
+   <head>
+
+      <meta charset="UTF-8">      
+      <link rel="stylesheet" href="tarefa4.css">
+
+   </head>
+
+   
+
+   <body>
+
+      <div id="meu amor">
+         <a href="#" id="botaoCarregar">Carregando cafés...</a>
+         <a href="#" id="botaoOrdenar">Ordenar cafés</a>
+         <a href="#" id="botaoEmbaralhar">Embaralhar cafés</a>
+      </div>            
+
+   </body>   
+
+   
+
+   <script>
+
+      let cafes = ["Orfeu", "Santo Grão", "Baggio"]
+
+      function transformar(item){
+
+         return `<table>
+                     <tr>
+                        <td>${item}</td>
+                     </tr>
+                  </table>`
+
+      }
+
+    carregarDiv=()=>{ 
+
+         let div = document.getElementById("meu amor")
+
+         let cafesHtml = cafes.map(transformar)
+
+         div.innerHTML = `${cafesHtml.join("\n")}`
+    }
+
+    ordenarDiv=()=>{
+
+         let div = document.getElementById("meu amor")
+
+         cafes.sort()
+
+         let cafesHtml = cafes.map(transformar)
+
+         div.innerHTML = `${cafesHtml.join("\n")}`
+    }
+
+    embaralharDiv=()=>{
+
+         let div = document.getElementById("meu amor")
+
+         shuffle(cafes)
+
+         let cafessHtml = cafes.map(transformar)
+
+         div.innerHTML = `${cafesHtml.join("\n")}`
+    }
+
+      
+
+      let botao = document.getElementById("botaoCarregar")
+      let botaoOrd = document.getElementById("botaoOrdenar")
+      let botaoEmb = document.getElementById("botaoEmbaralhar")
+
+      botao.addEventListener("click", carregarDiv)
+      botaoOrd.addEventListener("click", ordenarDiv)
+      botaoEmb.addEventListener("click", embaralharDiv)                 
+
+   </script>
+
+</html>
