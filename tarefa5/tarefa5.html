@@ -15,18 +15,7 @@
 
       <div><button id="botaoCarregar">Carregando cervejas...</button></div>
 
-      <table>
-         <thead>
-            <tr>
-               <th>Nome</th>
-               <th>Álcool</th>
-            </tr>
-         </thead>
-         <tbody id="cervejasDiv">
-
-         </tbody>
-
-      </table>
+      <table id="cervejasDiv"></table>
 
    </body>   
 
@@ -41,21 +30,27 @@
          {
 
             name: "Guiness",
-            alcohol: "10%"             
+            alcohol: "10%",
+            ibu: "20",
+            style: "Dry Stout"             
 
          }, 
 
          {
 
             name: "Desperados",
-            alcohol: "6%"             
+            alcohol: "6%",
+            ibu: "50",
+            style: "Lager"             
 
          }, 
 
          {
 
             name: "Becks",
-            alcohol: "5%"             
+            alcohol: "5%",
+            ibu: "20",
+            style: "Lager"              
 
          }
 
@@ -64,13 +59,25 @@
 
       //cs é um array de cervejas
 
-      const carregarDiv = cs => {
+      const carregarDiv = (cs, id="cervejasDiv", th="Nome", th2="Alcool", th3 ="Amargor", th4="Estilo", name, alcool, ibu, style) => {
 
-         const div = document.getElementById("cervejasDiv")
+         const div = document.getElementById(id)
 
-         const itensHtml = cs.map(item => `<div>${item['name']} -- ${item['alcohol']}</div>`) 
+         const itensHtml = cs.map(item => 
+         `<tr> 
+            <td>${item['name']}</td> 
+            <td>${item['alcohol']}</td> 
+            <td>${item['ibu']}</td> 
+            <td>${item['style']}</td> 
+         </tr>`) 
 
-         div.innerHTML = `${itensHtml.join("\n")}`
+         div.innerHTML = `<tr>
+                            <th>${th}</th>
+                            <th>${th2}</th>
+                            <th>${th3}</th>
+                            <th>${th4}</th>
+                          </tr>
+                          ${itensHtml.join("\n")}`
 
       }
 
