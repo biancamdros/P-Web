@@ -1,0 +1,51 @@
+*{
+    padding: 0;
+    margin: 0;
+    outline: none;
+    box-sizing: border-box;
+}
+table, td, th {
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  th, td {
+    padding: 15px;
+  }
+
+  .div-btn{
+    text-align:center;
+    margin: 30px;
+  }
+
+  button{
+    border: none;
+    outline: none;
+    padding: 20px;
+    font-size: 25px;
+    cursor: pointer;
+    background-color: rgb(197, 108, 123);
+    color: white;
+    border-radius: 5px;
+  }
+
+  button:hover{
+    letter-spacing: 1px;
+    background-color: rgb(141, 71, 83);
+  }
+
+  .container{
+    width: 100%;
+    height: 500px;
+    text-align: center;
+  }
+
+  .content{
+    padding: 10px;
+    font-size: 30px;
+  }
