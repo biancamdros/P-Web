@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<html>
+
+   <head>
+
+      <title>ReactZero</title>      
+
+   </head>
+
+   <body>
+
+      <div id="app">
+
+      
+
+      </div>
+
+      <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+      <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+      <script src="https://unpkg.com/babel-standalone/babel.min.js"></script>
+      
+
+      <script type="text/babel">
+
+         ReactDOM.render(
+            <TabelaBebidas/>
+            ,document.getElementById("app")
+         )
+
+         const cervejas = [
+                [
+
+                    "Morango",
+                    "20%",
+                    "15%",           
+
+                ], 
+
+                [
+
+                    "Banana",
+                    "0%",
+                    "80%",          
+
+               ], 
+
+                [
+
+                    "Laranja",
+                    "70%",
+                    "10%",              
+
+               ]
+         ];
+
+
+         function TabelaBebidas(){
+            return(
+               <div id = "app">
+                  <Cabecalho/>
+                  <table border="1">
+                     <thead>
+                        <tr>
+                           <th>Nome</th>
+                           <th>Marca</th>
+                           <th>Doçura</th>
+                        </tr>
+                     </thead>
+                     <tbody id="conteudo">
+                        
+                     </tbody>
+                  </table>
+               </div>    
+            )
+         }
+
+
+         function Cabecalho(){
+            return(
+               <div>
+                  <h1>Minha Tabela</h1>
+               </div>
+            );
+         }
+
+         const conteudo = (conteudo) =>{
+            let tam = conteudo.length;
+            let valor ="";
+
+            for(let i=0; i<tam; i++){
+                let tam1 = conteudo[i].length;
+                valor += '<tr>'
+                for(let j=0; j<tam1; j++){
+                    valor += `<th>${conteudo[i][j]}</th>`
+                }
+                valor += '</tr>';
+            }
+            valor += '</tr>';
+            return (valor);
+         }
+
+         let textConteudo = conteudo(cervejas);
+         document.getElementById("conteudo").innerHTML = textConteudo;
+      
+      </script>
+
+   </body>
+
+</html>

@@ -1,0 +1,26 @@
+p.verso{
+
+    color: blue;
+ 
+ }
+ p.mote{
+
+    color: red;
+ 
+ }
+ a:link, a:visited, a:active {
+	text-decoration:none;
+	}
+a:hover {
+	text-decoration: underline;
+	color:#000;
+	background:#ff0;
+	}
+
+img {
+  border-radius: 50%;
+}
+.poeta img{
+	max-width: 150px;
+	max-height: 150px;
+}
